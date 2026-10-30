@@ -1,0 +1,493 @@
+
+/* ==============================
+   QUEENS OF MARS
+   NASA Space Apps Project
+================================= */
+
+:root {
+  --background: #060b18;
+  --card: #101c30;
+  --card-light: #14243b;
+  --blue: #8bbcff;
+  --light: #bdcbe0;
+  --white: #ffffff;
+  --border: #304563;
+  --muted: #8294ad;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ==============================
+   HERO SECTION
+================================= */
+
+.hero {
+  min-height: 90vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px 8%;
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at 80% 20%, rgba(69, 117, 180, 0.19), transparent 30%),
+    radial-gradient(circle at 15% 75%, rgba(75, 103, 157, 0.13), transparent 35%),
+    radial-gradient(1px 1px at 10% 20%, white 1px, transparent 2px),
+    radial-gradient(1px 1px at 30% 70%, white 1px, transparent 2px),
+    radial-gradient(1px 1px at 55% 30%, white 1px, transparent 2px),
+    radial-gradient(2px 2px at 75% 60%, white 1px, transparent 2px),
+    radial-gradient(1px 1px at 90% 15%, white 1px, transparent 2px),
+    var(--background);
+
+  background-size:
+    auto, auto,
+    180px 180px,
+    230px 230px,
+    200px 200px,
+    250px 250px,
+    190px 190px,
+    auto;
+}
+
+/* Navbar */
+
+.navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.logo {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.logo span {
+  color: var(--blue);
+}
+
+.nav-link {
+  color: var(--light);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--blue);
+}
+
+/* Hero Content */
+
+.hero-content {
+  width: 100%;
+  max-width: 760px;
+  margin: auto 0;
+  padding: 80px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  color: var(--blue);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 18px;
+}
+
+.hero-content h1 {
+  color: var(--white);
+  font-size: clamp(2.7rem, 6vw, 5rem);
+  line-height: 1.12;
+  letter-spacing: -2px;
+  margin-bottom: 25px;
+}
+
+.hero-content h1 span {
+  display: block;
+  color: var(--blue);
+}
+
+.hero-content > p:not(.eyebrow) {
+  max-width: 590px;
+  color: var(--light);
+  font-size: 1.05rem;
+  line-height: 1.9;
+}
+
+/* Buttons */
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 12px 23px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.primary-btn {
+  color: var(--background);
+  background: var(--blue);
+  border: 1px solid var(--blue);
+}
+
+.primary-btn:hover {
+  background: #d1e5ff;
+  transform: translateY(-3px);
+}
+
+.secondary-btn {
+  color: var(--white);
+  border: 1px solid var(--border);
+  background: rgba(16, 28, 48, 0.65);
+}
+
+.secondary-btn:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+  transform: translateY(-3px);
+}
+
+/* Hero Footer */
+
+.hero-footer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 13px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  padding-bottom: 12px;
+}
+
+/* ==============================
+   INTRO SECTION
+================================= */
+
+.intro {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 100px 25px 45px;
+  text-align: center;
+}
+
+.intro h2 {
+  color: var(--white);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-bottom: 16px;
+}
+
+.intro > p:last-child {
+  color: var(--light);
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+/* ==============================
+   STORIES SECTION
+================================= */
+
+.stories {
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 25px 25px 100px;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+/* Story Card */
+
+.story-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  display: flex;
+  flex-direction: column;
+
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.story-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--blue);
+}
+
+/* Story Number */
+
+.story-number {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--white);
+  background: rgba(6, 11, 24, 0.8);
+  border: 1px solid rgba(139, 188, 255, 0.5);
+  border-radius: 50%;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* Story Images */
+
+.story-image {
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  background: var(--card-light);
+}
+
+.story-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.story-card:hover .story-image img {
+  transform: scale(1.04);
+}
+
+/* Story Content */
+
+.story-content {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.story-tag {
+  color: var(--blue);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.story-content h3 {
+  color: var(--white);
+  font-size: 1.35rem;
+  line-height: 1.4;
+  margin-bottom: 14px;
+}
+
+.story-content p {
+  color: var(--light);
+  font-size: 0.94rem;
+  line-height: 1.85;
+  flex: 1;
+}
+
+.story-content a {
+  display: inline-block;
+  margin-top: 20px;
+  color: var(--blue);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: 0.3s ease;
+}
+
+.story-content a:hover {
+  color: var(--white);
+  transform: translateX(4px);
+}
+
+/* ==============================
+   ARCHIVE SECTION
+================================= */
+
+.archive {
+  padding: 65px 20px;
+  text-align: center;
+  background: #0a1425;
+  border-top: 1px solid var(--border);
+}
+
+.archive h2 {
+  color: var(--white);
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+
+.archive p {
+  color: var(--light);
+  margin-bottom: 25px;
+}
+
+.archive-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.archive-buttons button {
+  padding: 11px 22px;
+  color: var(--background);
+  background: var(--blue);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+/* ==============================
+   FOOTER
+================================= */
+
+footer {
+  padding: 35px 20px;
+  text-align: center;
+  background: #040812;
+  border-top: 1px solid var(--border);
+}
+
+footer p {
+  color: var(--white);
+  font-weight: 800;
+  letter-spacing: 3px;
+  font-size: 1rem;
+}
+
+footer span,
+footer small {
+  display: block;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+footer small {
+  margin-top: 18px;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+================================= */
+
+@media (max-width: 768px) {
+
+  .hero {
+    min-height: 80vh;
+    padding: 22px 6%;
+  }
+
+  .hero-content {
+    padding: 65px 0;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(2.4rem, 10vw, 3.7rem);
+  }
+
+  .hero-content > p:not(.eyebrow) {
+    font-size: 0.95rem;
+  }
+
+  .stories {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .intro {
+    padding-top: 75px;
+  }
+
+  .story-image {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .logo {
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+
+  .nav-link {
+    font-size: 0.8rem;
+  }
+
+  .hero-content h1 {
+    letter-spacing: -1px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-buttons a {
+    text-align: center;
+  }
+
+  .hero-footer {
+    font-size: 0.62rem;
+    gap: 8px;
+  }
+
+  .story-image {
+    height: 210px;
+  }
+
+  .story-content {
+    padding: 21px;
+  }
+
+  .story-content h3 {
+    font-size: 1.2rem;
+  }
+}
